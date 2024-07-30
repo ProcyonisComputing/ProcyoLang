@@ -1,5 +1,5 @@
 # ProcyoLang
-ProcyoLang Interactive Interpreted Programming Language
+ProcyoLang Interactive Interpreted Programming Language developed by Gautham Nair
 
 Latest : ProcyoLang 0.56.21 Alpha 6
 
