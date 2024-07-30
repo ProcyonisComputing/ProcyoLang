@@ -52,7 +52,7 @@ except:
 
 print(art.text2art("ProcyoLang", "random"))
 print("ProcyoLang")
-print("0.5.0 Alpha 5")
+print("0.56.21 Alpha 6")
 print("Gautham Nair")
 print("----------------------------------------")
 prompt = ""
@@ -433,35 +433,6 @@ while prompt not in  ["exit", "quit", "exit()", "quit()"]:
                             print(id(lvar[line[4:]]))
                         except:
                             print("\033[91mVariable not found\033[1;37m")
-                    elif line.startswith("xfor "):
-                        varn, val = line[4:].split(" in ")
-                        varn = varn.strip()
-                        val = val.strip()
-                        if val.startswith("range "):
-                            range1, range2 = val[6:].split(" ")
-                            for i in range(int(range1), int(range2) + 1):
-                                lvar[varn] = str(i)
-                                while True:
-                                    prompt = input("ProcyoLang > XFor $ ")
-                                    if prompt.startswith("next"):
-                                        break
-                                    elif prompt.startswith("break"):
-                                        exit()
-                                    else:
-                                        print(i)
-                        else:
-                            print("\033[91mError : Invalid Syntax\033[1;37m")
-                    elif line.startswith("for "):
-                        varn, val = line[4:].split(" in ")
-                        varn = varn.strip()
-                        val = val.strip()
-                        if val.startswith("range "):
-                            range1, range2 = val[6:].split(" ")
-                            for i in range(int(range1), int(range2) + 1):
-                                lvar[varn] = str(i)
-                                print(i)
-                        else:
-                            print("\033[91mError : Invalid Syntax\033[1;37m")
                     elif line.startswith("adrcall "):
                         val = line[8:]
                         for k, v in ladr.items():
@@ -493,6 +464,36 @@ while prompt not in  ["exit", "quit", "exit()", "quit()"]:
                                 del lact[varn]
                             else:
                                 print("\033[91mVariable not found to killact or unmask\033[1;37m")
+                    elif line.startswith("for "):
+                        try:
+                            iterating_var, in_command, command, action = line[4:].split(" ")
+                            if in_command == "from":
+                                start, end = command.split("~")
+                                start = int(start)
+                                end = int(end)
+                                if action.startswith("print"):
+                                    action, value = action.split("->")
+                                    if value == iterating_var:
+                                        for i in range(start, end + 1):
+                                            print(i)
+                                    elif value.isdigit():
+                                        for i in range(start, end + 1):
+                                            print(value)
+                                    else:
+                                        if value in lvar:
+                                            for i in range(start, end + 1):
+                                                print(lvar[value])
+                                        elif value.startswith('"') and value.endswith('"'):
+                                            for i in range(start, end + 1):
+                                                print(value[1:-1])
+                                        else:
+                                            print("\033[91mError : Variable not found\033[1;37m")
+                                else:
+                                    print("\033[91mError : Invalid Syntax\033[1;37m")
+                            else:
+                                print("\033[91mError : Invalid Syntax\033[1;37m")
+                        except:
+                            print("\033[91mError : Invalid Syntax\033[1;37m")
                     elif line.startswith("varops "):
                         op = line[7:].split(" ")[0]
                         varn = line[7:].split(" ")[1:]
@@ -825,34 +826,6 @@ while prompt not in  ["exit", "quit", "exit()", "quit()"]:
             print(id(var[prompt[4:]]))
         except:
             print("\033[91mVariable not found\033[1;37m")
-    elif prompt.startswith("xfor "):
-        varn, val = prompt[4:].split(" in ")
-        varn = varn.strip()
-        val = val.strip()
-        if val.startswith("range "):
-            range1, range2 = val[6:].split(" ")
-            for i in range(int(range1), int(range2) + 1):
-                var[varn] = str(i)
-                while True:
-                    prompt = input("ProcyoLang > XFor $ ")
-                    if prompt.startswith("next"):
-                        break
-                    elif prompt.startswith("break"):
-                        exit()
-                    else:
-                        print(i)
-        else:
-            print("\033[91mError : Invalid Syntax\033[1;37m")
-    elif prompt.startswith("for "):
-        varn, val = prompt[4:].split(" in ")
-        varn = varn.strip()
-        val = val.strip()
-        if val.startswith("range "):
-            range1, range2 = val[6:].split(" ")
-            for i in range(int(range1), int(range2) + 1):
-                print(i)
-        else:
-            print("\033[91mError : Invalid Syntax\033[1;37m")
     elif prompt == "clr()":
         if sys.platform == "win32":
             os.system('cls')
@@ -1103,7 +1076,7 @@ while prompt not in  ["exit", "quit", "exit()", "quit()"]:
             print("\033[91mError : Invalid Syntax\033[1;37m")
     elif prompt == "ver()":
         print("ProcyoLang")
-        print("0.5.0 Alpha 5")
+        print("0.56.21 Alpha 6")
         print("Gautham Nair")
     elif prompt.startswith("eval "):
         print(eval(prompt[5:]))

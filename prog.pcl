@@ -1,0 +1,2 @@
+#Sample Program for loop
+for i from 0~10 print->12
