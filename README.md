@@ -15,7 +15,7 @@ The ProcyoLang Interactive Shell is a command-line interface that allows users t
 The ProcyoLang Script Interpreter is a command-line tool that runs ProcyoLang Source Files (.pcl), which is supplied to it as argument.
 
 #### Usage:
-`pl program.pcl`
+`pl prog.pcl`
 
 ## What's new in Alpha 6?
 * Added support for "real `for` loop", with print integer, string or iterating variable value support.
