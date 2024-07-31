@@ -52,7 +52,7 @@ except:
 
 print(art.text2art("ProcyoLang", "random"))
 print("ProcyoLang")
-print("0.56.21 Alpha 6")
+print("0.64.0 Alpha 7")
 print("Gautham Nair")
 print("----------------------------------------")
 prompt = ""
@@ -309,9 +309,15 @@ while prompt not in  ["exit", "quit", "exit()", "quit()"]:
                         print("\033[91mError : Statement expected after echo\033[1;37m")
                     elif line.startswith("input "):
                         try:
-                            input(line[6:])
+                            var, inst = line[6:].split(" ")
+                            inst = inst.replace("|s|", " ")
+                            lvar[var] = input(inst)
                         except:
                             print("\033[91mError : Invalid Syntax\033[1;37m")
+                    elif line == "duck" or line == "DUCK" or line == "Duck":
+                        print(0)
+                    elif line == "duckduck" or line == "DUCKDUCK" or line == "DuckDuck":
+                        print("0^2")
                     elif line == "input":
                         print("\033[91mError : Statement expected after input\033[1;37m")
                     elif line.startswith("type("):
@@ -484,12 +490,57 @@ while prompt not in  ["exit", "quit", "exit()", "quit()"]:
                                             for i in range(start, end + 1):
                                                 print(lvar[value])
                                         elif value.startswith('"') and value.endswith('"'):
+                                            value = value.replace("|s|", " ")
                                             for i in range(start, end + 1):
                                                 print(value[1:-1])
                                         else:
                                             print("\033[91mError : Variable not found\033[1;37m")
                                 else:
                                     print("\033[91mError : Invalid Syntax\033[1;37m")
+                            elif in_command == "till":
+                                if action.startswith("print"):
+                                    action, value = action.split("->")
+                                    command = int(command)
+                                    if value == iterating_var:
+                                        for i in range(0, command + 1):
+                                            print(i)
+                                    elif value.isdigit():
+                                        for i in range(0, command + 1):
+                                            print(value)
+                                    else:
+                                        if value in lvar:
+                                            for i in range(0, command + 1):
+                                                print(lvar[value])
+                                        elif value.startswith('"') and value.endswith('"'):
+                                            value = value.replace("|s|", " ")
+                                            for i in range(0, command + 1):
+                                                print(value[1:-1])
+                                        else:
+                                            print("\033[91mError : Variable not found\033[1;37m")
+                                else:
+                                    print("\033[91mError : Invalid Syntax\033[1;37m")
+                            elif in_command == "noDuckTill":
+                                if action.startswith("print"):
+                                    action, value = action.split("->")
+                                    command = int(command)
+                                    if value == iterating_var:
+                                        for i in range(1, command + 1):
+                                            print(i)
+                                    elif value.isdigit():
+                                        for i in range(1, command + 1):
+                                            print(value)
+                                    else:
+                                        if value in lvar:
+                                            for i in range(1, command + 1):
+                                                print(lvar[value])
+                                        elif value.startswith('"') and value.endswith('"'):
+                                            value = value.replace("|s|", " ")
+                                            for i in range(1, command + 1):
+                                                print(value[1:-1])
+                                        else:
+                                            print("\033[91mError : Variable not found\033[1;37m")
+                                else:
+                                    print("\033[91mError : Invalid Syntax\033[1;37m")                                                 
                             else:
                                 print("\033[91mError : Invalid Syntax\033[1;37m")
                         except:
@@ -1076,7 +1127,7 @@ while prompt not in  ["exit", "quit", "exit()", "quit()"]:
             print("\033[91mError : Invalid Syntax\033[1;37m")
     elif prompt == "ver()":
         print("ProcyoLang")
-        print("0.56.21 Alpha 6")
+        print("0.64.0 Alpha 7")
         print("Gautham Nair")
     elif prompt.startswith("eval "):
         print(eval(prompt[5:]))
