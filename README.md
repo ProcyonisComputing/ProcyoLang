@@ -1,4 +1,4 @@
-# ![ProcyoLang Logo](https://github.com/ProcyonisSoftware/ProcyonComponentsLogos/blob/06fa759e799c31f77d4e35e31bd7c8dbe6b5c5bd/ProcyoLang.png)
+![ProcyoLang Logo](https://github.com/ProcyonisSoftware/ProcyonComponentsLogos/blob/06fa759e799c31f77d4e35e31bd7c8dbe6b5c5bd/ProcyoLang.png)
 ProcyoLang Interactive Interpreted Programming Language developed by [Gautham Nair](https://github.com/gauthamnair2005)
 
 Latest : `ProcyoLang 0.128.0 Alpha 8`
