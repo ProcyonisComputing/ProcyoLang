@@ -21,7 +21,7 @@ The ProcyoLang Script Interpreter is a command-line tool that runs ProcyoLang So
 ## What's new in Alpha 8?
 * Added support for simple `if-else`.
 * We stopped updating the Interactive Shell with newer commands and script-specific features like loops, conditional statements, etc, as we promote and recommend the Script Interpreter. However, we will still provide the Interactive Shell in downloads and repository and not delete it.
-* We stopped binary released of pre-release versions of ProcyoLang, we will restart the binary executable release while this project reaches stability and enters stable or release-preview state.
+* We stopped binary releases of pre-release versions of ProcyoLang, we will restart the binary executable release while this project reaches stability and enters stable or release-preview state.
 
 ## What was new in Alpha 7?
 * Added support for `till` and `noDuckTill` member operators in `for` loop.
