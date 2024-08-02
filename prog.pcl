@@ -13,3 +13,5 @@ plot 10 20
 plotline 12 20 10 23
 input z What|s|is|s|your|s|name?|s|
 z
+if x==z print->"EQUAL" ; else print->"NOT|s|EQUAL"
+if x!=z print->"NOT|s|EQUAL|s|L2" ; else print->"EQUAL|s|L2"

@@ -15,3 +15,5 @@
 `var y = 12`
 
 `varops + x y` #Addition, x + y, here, masked value are not used, but instead original values are used, i.e, 12 + 12 = 24
+
+`if x==y print->"EQUAL" ; else print->"NOT|s|Equal"` #Simple if-else, pretty much self-explanatory

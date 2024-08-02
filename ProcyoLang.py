@@ -52,7 +52,7 @@ except:
 
 print(art.text2art("ProcyoLang", "random"))
 print("ProcyoLang")
-print("0.64.0 Alpha 7")
+print("0.128.0 Alpha 8")
 print("Gautham Nair")
 print("----------------------------------------")
 prompt = ""
@@ -1127,7 +1127,7 @@ while prompt not in  ["exit", "quit", "exit()", "quit()"]:
             print("\033[91mError : Invalid Syntax\033[1;37m")
     elif prompt == "ver()":
         print("ProcyoLang")
-        print("0.64.0 Alpha 7")
+        print("0.128.0 Alpha 8")
         print("Gautham Nair")
     elif prompt.startswith("eval "):
         print(eval(prompt[5:]))

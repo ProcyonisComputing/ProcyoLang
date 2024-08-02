@@ -132,6 +132,90 @@ def run_file(filename):
                             print("\033[91mError : Invalid Syntax\033[1;37m")
                     else:
                         print("\033[93mUnknown datatype\033[93m")
+                elif line.startswith("if "):
+                    condition, action, terminate, els, action2  = line[3:].split(" ")
+                    if terminate != ";":
+                        print("\033[91mError : Invalid Syntax\033[1;37m")
+                        pass
+                    else:
+                        try:
+                            var, var1 = condition.split("==")
+                            if var in lvar and var1 in lvar:
+                                if lvar[var] == lvar[var1]:
+                                    if action.startswith("print"):
+                                        action, value = action.split("->")
+                                        if value == var:
+                                            print(lvar[var])
+                                        elif value == var1:
+                                            print(lvar[var1])
+                                        elif value.isdigit():
+                                            print(value)
+                                        elif value in lvar:
+                                            print(lvar[value])
+                                        elif value.startswith('"') and value.endswith('"'):
+                                            value = value.replace("|s|", " ")
+                                            print(value[1:-1])
+                                        else:
+                                            print("\033[91mError : Invalid Syntax\033[1;37m")
+                                    else:
+                                        print("\033[91mError : Invalid Syntax\033[1;37m")
+                                else:
+                                    if action2.startswith("print"):
+                                        action2, value = action2.split("->")
+                                        if value == var:
+                                            print(lvar[var])
+                                        elif value == var1:
+                                            print(lvar[var1])
+                                        elif value.isdigit():
+                                            print(value)
+                                        elif value in lvar:
+                                            print(lvar[value])
+                                        elif value.startswith('"') and value.endswith('"'):
+                                            value = value.replace("|s|", " ")
+                                            print(value[1:-1])
+                                        else:
+                                            print("\033[91mError : Invalid Syntax\033[1;37m")
+                            else:
+                                print("\033[91mVariable not found\033[1;37m")
+                        except:
+                            var, var1 = condition.split("!=")
+                            if var in lvar and var1 in lvar:
+                                if lvar[var] != lvar[var1]:
+                                    if action.startswith("print"):
+                                        action, value = action.split("->")
+                                        if value == var:
+                                            print(lvar[var])
+                                        elif value == var1:
+                                            print(lvar[var1])
+                                        elif value.isdigit():
+                                            print(value)
+                                        elif value in lvar:
+                                            print(lvar[value])
+                                        elif value.startswith('"') and value.endswith('"'):
+                                            value = value.replace("|s|", " ")
+                                            print(value[1:-1])
+                                        else:
+                                            print("\033[91mError : Invalid Syntax\033[1;37m")
+                                    else:
+                                        print("\033[91mError : Invalid Syntax\033[1;37m")
+                                else:
+                                    if action2.startswith("print"):
+                                        action2, value = action2.split("->")
+                                        if value == var:
+                                            print(lvar[var])
+                                        elif value == var1:
+                                            print(lvar[var1])
+                                        elif value.isdigit():
+                                            print(value)
+                                        elif value in lvar:
+                                            print(lvar[value])
+                                        elif value.startswith('"') and value.endswith('"'):
+                                            value = value.replace("|s|", " ")
+                                            print(value[1:-1])
+                                        else:
+                                            print("\033[91mError : Invalid Syntax\033[1;37m")
+                            else:
+                                print("\033[91mVariable not found\033[1;37m")                            
                 elif line.startswith("var[] "):
                     varn, val = line[6:].split("=")
                     varn = varn.strip()
