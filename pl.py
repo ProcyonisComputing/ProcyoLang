@@ -5,13 +5,53 @@ from platform import processor, system, version
 import matplotlib.pyplot as plt
 import psutil
 
+lvar = {}
+ladr = {}
+lact = {}
+lfor = []
+
+def for_run(param):
+    if param.startswith("print->"):
+        if param[7:].startswith('"') and param[-1] == '"':
+            print(param[8:-1].replace("|s|", " "))
+        elif param[7:].isdigit():
+            print(param[7:])
+        elif param[7:] in lvar:
+            print(lvar[param[7:]])
+        elif param[7:] in ladr:
+                print(ladr[param[7:]])
+        else:
+            print("\033[91mError : Invalid Variable\033[1;37m")
+    elif param.startswith("var->"):
+        varn, value = param[5:].split("=")
+        if value.startswith('"') and value.endswith('"'):
+            value = value[1:-1]
+            pass
+        elif value in '.':
+            value = float(value)
+        else:
+            value = int(value)
+        lvar[varn] = value
+        ladr[varn] = id(lvar[varn])
+    elif param.startswith("act->"):
+        actn, value = param[5:].split("=")
+        if actn in lvar:
+            lvar[actn] = value
+        else:
+            print("\033[91mError : Invalid Variable\033[1;37m")
+    elif param.startswith("killact->"):
+        del lact[param[9:]]
+    elif param.startswith("kill->"):
+        del lvar[param[5:]]
+        del ladr[param[5:]]
+    else:
+        print("\033[91mError : Invalid Command\033[1;37m")
+
+
+
 def run_file(filename):
     try:
         with open(filename, "r") as f:
-            lvar = {}
-            ladr = {}
-            lact = {}
-            lfor = []
             for line in f:
                 line = line.rstrip()
                 if line.startswith("#"):
@@ -443,70 +483,16 @@ def run_file(filename):
                             start, end = command.split("~")
                             start = int(start)
                             end = int(end)
-                            if action.startswith("print"):
-                                action, value = action.split("->")
-                                if value == iterating_var:
-                                    for i in range(start, end + 1):
-                                        print(i)
-                                elif value.isdigit():
-                                    for i in range(start, end + 1):
-                                        print(value)
-                                else:
-                                    if value in lvar:
-                                        for i in range(start, end + 1):
-                                            print(lvar[value])
-                                    elif value.startswith('"') and value.endswith('"'):
-                                        value = value.replace("|s|", " ")
-                                        for i in range(start, end + 1):
-                                            print(value[1:-1])
-                                    else:
-                                        print("\033[91mError : Variable not found\033[1;37m")
-                            else:
-                                print("\033[91mError : Invalid Syntax\033[1;37m")
+                            for i in range(start, end + 1):
+                                for_run(action)
                         elif in_command == "till":
-                            if action.startswith("print"):
-                                action, value = action.split("->")
-                                command = int(command)
-                                if value == iterating_var:
-                                    for i in range(0, command + 1):
-                                        print(i)
-                                elif value.isdigit():
-                                    for i in range(0, command + 1):
-                                        print(value)
-                                else:
-                                    if value in lvar:
-                                        for i in range(0, command + 1):
-                                            print(lvar[value])
-                                    elif value.startswith('"') and value.endswith('"'):
-                                        value = value.replace("|s|", " ")
-                                        for i in range(0, command + 1):
-                                            print(value[1:-1])
-                                    else:
-                                        print("\033[91mError : Variable not found\033[1;37m")
-                            else:
-                                print("\033[91mError : Invalid Syntax\033[1;37m")
+                            command = int(command)
+                            for i in range(0, command + 1):
+                                for_run(action)
                         elif in_command == "noDuckTill":
-                            if action.startswith("print"):
-                                action, value = action.split("->")
-                                command = int(command)
-                                if value == iterating_var:
-                                    for i in range(1, command + 1):
-                                        print(i)
-                                elif value.isdigit():
-                                    for i in range(1, command + 1):
-                                        print(value)
-                                else:
-                                    if value in lvar:
-                                        for i in range(1, command + 1):
-                                            print(lvar[value])
-                                    elif value.startswith('"') and value.endswith('"'):
-                                        value = value.replace("|s|", " ")
-                                        for i in range(1, command + 1):
-                                            print(value[1:-1])
-                                    else:
-                                        print("\033[91mError : Variable not found\033[1;37m")
-                            else:
-                                print("\033[91mError : Invalid Syntax\033[1;37m")                                                 
+                            command = int(command)
+                            for i in range(1, command + 1):
+                                for_run(action)                                                 
                         else:
                             print("\033[91mError : Invalid Syntax\033[1;37m")
                     except:
@@ -614,8 +600,19 @@ def run_file(filename):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
+        print("ProcyoLang 1.0.0 Alpha 9")
+        print("Error : No input file specified")
         print("Usage : pl <filename>")
         sys.exit(1)
 
     filename = sys.argv[1]
-    run_file(filename)
+    if filename == "-v" or filename == "-ver" or filename == "--v" or filename == "--ver":
+        print("ProcyoLang 1.0.0 Alpha 9")
+        print("Gautham Nair")
+        sys.exit(0)
+    try:
+        run_file(filename)
+    except:
+        print("ProcyoLang 1.0.0 Alpha 9")
+        print("Error : File not found")
+        sys.exit(1)

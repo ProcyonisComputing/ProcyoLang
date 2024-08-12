@@ -52,9 +52,10 @@ except:
 
 print(art.text2art("ProcyoLang", "random"))
 print("ProcyoLang")
-print("0.128.0 Alpha 8")
+print("1.0.0 Alpha 9")
 print("Gautham Nair")
 print("----------------------------------------")
+print("/!\ This mode (interactive mode) will be removed from Beta releases. Beta release starts after Alpha 10..!")
 prompt = ""
 var = {}
 adr = {}
@@ -1127,7 +1128,7 @@ while prompt not in  ["exit", "quit", "exit()", "quit()"]:
             print("\033[91mError : Invalid Syntax\033[1;37m")
     elif prompt == "ver()":
         print("ProcyoLang")
-        print("0.128.0 Alpha 8")
+        print("1.0.0 Alpha 9")
         print("Gautham Nair")
     elif prompt.startswith("eval "):
         print(eval(prompt[5:]))

@@ -1,11 +1,11 @@
 ![ProcyoLang Logo](https://raw.githubusercontent.com/ProcyonisSoftware/ProcyonComponentsLogos/06fa759e799c31f77d4e35e31bd7c8dbe6b5c5bd/ProcyoLang.png)
 
-ProcyoLang Interactive Interpreted Programming Language developed by [Gautham Nair](https://github.com/gauthamnair2005)
+ProcyoLang Interpreted Programming Language developed by [Gautham Nair](https://github.com/gauthamnair2005)
 
-Latest : `ProcyoLang 0.128.0 Alpha 8`
+Latest : `ProcyoLang 1.0.0 Alpha 9`
 
 Tools Included:
-* ProcyoLang Interactive Shell (procyolang.py)
+* ProcyoLang Interactive Shell (procyolang.py) (Will be removed from Beta releases (after Alpha 10))
 * ProcyoLang Script Interpreter (pl.py)
 * Sample ProcyoLang Source Code (prog.pcl)
 
@@ -18,7 +18,13 @@ The ProcyoLang Script Interpreter is a command-line tool that runs ProcyoLang So
 #### Usage:
 `python pl.py prog.pcl`
 
-## What's new in Alpha 8?
+## What's new in Alpha 9?
+* For loop code refactor.
+* Added support for more operations in for loop.
+* Improved error handling in ProcyoLang Script Interpreter.
+* Interactive mode will be removed from Beta releases, which will arrive after Alpha 10.
+
+## What was new in Alpha 8?
 * Added support for simple `if-else`.
 * We stopped updating the Interactive Shell with newer commands and script-specific features like loops, conditional statements, etc, as we promote and recommend the Script Interpreter. However, we will still provide the Interactive Shell in downloads and repository and not delete it.
 * We stopped binary releases of pre-release versions of ProcyoLang, we will restart the binary executable release while this project reaches stability and enters stable or release-preview state.
