@@ -11,6 +11,8 @@
 | Alpha 5       | :x:                               |
 | Alpha 4       | :x:                               |
 | Alpha 3       | :x:                               |
+| Alpha 2       | :x:                               |
+| Alpha 1       | :x:                               |
 
 ## Support
 If you have any questions or need help with the project, please don't hesitate to reach out via Gautham's profile or Procyonis Software's page.
