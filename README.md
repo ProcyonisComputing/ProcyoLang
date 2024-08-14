@@ -2,7 +2,7 @@
 
 ProcyoLang Interpreted Programming Language developed by [Gautham Nair](https://github.com/gauthamnair2005)
 
-Latest : `ProcyoLang 1.0.1 Alpha 10`
+Latest : `ProcyoLang 1.0.1 Alpha 10`      [Get Now](https://github.com/ProcyonisSoftware/ProcyoLang/releases/tag/1.0.1.A10)
 
 Tools Included:
 * ProcyoLang Interactive Shell (procyolang.py) (Will be removed from Beta releases (after Alpha 10))
