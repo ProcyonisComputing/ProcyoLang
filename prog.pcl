@@ -1,4 +1,7 @@
 #Sample Program for loop
+#Compatible with version 1.0.1 Alpha 10
+var[] a = 12,13,14
+a
 var x = 12
 x
 print x
@@ -7,7 +10,7 @@ y
 act x = 10
 varops + x y
 for i from 0~5 print->"Hello|s|Da"
-for i till 5 print->"Hello|s|WOrld"
+for i till 5 print->"Hello|s|World"
 for i noDuckTill 5 print->"No|s|Duck|s|Till"
 plot 10 20
 plotline 12 20 10 23

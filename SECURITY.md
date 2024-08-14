@@ -4,7 +4,8 @@
 
 | Version       | Supported                         |
 | ------------- | --------------------------------- |
-| Alpha 9       | :white_check_mark:                |
+| Alpha 10      | :white_check_mark:                |
+| Alpha 9       | :x:                               |
 | Alpha 8       | :x:                               |
 | Alpha 7       | :x:                               |
 | Alpha 6       | :x:                               |
@@ -15,4 +16,4 @@
 | Alpha 1       | :x:                               |
 
 ## Support
-If you have any questions or need help with the project, please don't hesitate to reach out via Gautham's profile or Procyonis Software's page.
+If you have any questions or need help with the project, please don't hesitate to reach out via Gautham's profile or Procyonis Software page.

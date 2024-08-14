@@ -33,6 +33,28 @@ def for_run(param):
             value = int(value)
         lvar[varn] = value
         ladr[varn] = id(lvar[varn])
+    elif param.startswith("var[]->"):
+        varn, val = param[6:].split("=")
+        varn = varn.strip()
+        val = val.strip()
+        val0 = val.split(",")
+        val0 = [x.strip() for x in val0]
+        for i in range(0, len(val0)):
+            if val0[i].isdigit():
+                val0[i] = int(val0[i])
+            else:
+                if val0[i].startswith('"'):
+                    if val0[i].endswith('"'):
+                        val0[i] = val0[i].replace('"', '')
+                    else:
+                        pass
+                else:
+                    pass
+        if val == "" or val == " ":
+            print("\033[91mError : Invalid Syntax\033[1;37m")
+        else:
+            lvar[varn] = val0
+            ladr[varn] = id(lvar[varn])
     elif param.startswith("act->"):
         actn, value = param[5:].split("=")
         if actn in lvar:
@@ -600,19 +622,19 @@ def run_file(filename):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("ProcyoLang 1.0.0 Alpha 9")
+        print("ProcyoLang 1.0.1 Alpha 10")
         print("Error : No input file specified")
         print("Usage : pl <filename>")
         sys.exit(1)
 
     filename = sys.argv[1]
     if filename == "-v" or filename == "-ver" or filename == "--v" or filename == "--ver":
-        print("ProcyoLang 1.0.0 Alpha 9")
+        print("ProcyoLang 1.0.1 Alpha 10")
         print("Gautham Nair")
         sys.exit(0)
     try:
         run_file(filename)
     except:
-        print("ProcyoLang 1.0.0 Alpha 9")
+        print("ProcyoLang 1.0.1 Alpha 10")
         print("Error : File not found")
         sys.exit(1)

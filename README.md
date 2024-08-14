@@ -2,7 +2,7 @@
 
 ProcyoLang Interpreted Programming Language developed by [Gautham Nair](https://github.com/gauthamnair2005)
 
-Latest : `ProcyoLang 1.0.0 Alpha 9`
+Latest : `ProcyoLang 1.0.1 Alpha 10`
 
 Tools Included:
 * ProcyoLang Interactive Shell (procyolang.py) (Will be removed from Beta releases (after Alpha 10))
@@ -18,7 +18,12 @@ The ProcyoLang Script Interpreter is a command-line tool that runs ProcyoLang So
 #### Usage:
 `python pl.py prog.pcl`
 
-## What's new in Alpha 9?
+## What's new in Alpha 10?
+* Improved array declaration.
+* Experimental support for arrays in for loop.
+* Fixed known bugs.
+
+## What was new in Alpha 9?
 * For loop code refactor.
 * Added support for more operations in for loop.
 * Improved error handling in ProcyoLang Script Interpreter.
