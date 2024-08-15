@@ -1,20 +1,4 @@
-#Sample Program for loop
-#Compatible with version 1.0.1 Alpha 10
-var[] a = 12,13,14
-a
-var x = 12
-x
-print x
-var y = 10
-y
-act x = 10
-varops + x y
-for i from 0~5 print->"Hello|s|Da"
-for i till 5 print->"Hello|s|World"
-for i noDuckTill 5 print->"No|s|Duck|s|Till"
-plot 10 20
-plotline 12 20 10 23
-input z What|s|is|s|your|s|name?|s|
-z
-if x==z print->"EQUAL" ; else print->"NOT|s|EQUAL"
-if x!=z print->"NOT|s|EQUAL|s|L2" ; else print->"EQUAL|s|L2"
+use libstd
+libstd.ver
+libstd.add 3,1
+libstd.display 12

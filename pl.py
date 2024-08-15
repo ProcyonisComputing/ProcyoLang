@@ -4,11 +4,13 @@ import time
 from platform import processor, system, version
 import matplotlib.pyplot as plt
 import psutil
+import importlib
 
 lvar = {}
 ladr = {}
 lact = {}
 lfor = []
+isIncluded = False
 
 def for_run(param):
     if param.startswith("print->"):
@@ -97,6 +99,47 @@ def run_file(filename):
                         print("\033[91mNo such variable found to print\033[1;37m")
                 elif line.startswith("echo "):
                     print(line[5:])
+                elif line.startswith("use "):
+                    libName = line[4:]
+                    libName = libName.strip(" ")
+                    try:
+                        lib = importlib.import_module(libName)
+                        isIncluded = True
+                    except:
+                        print("\033[91mError : Library not found\033[1;37m")
+                elif line.startswith(libName + "."):
+                    if isIncluded:
+                        func_args = []
+                        if "," in line:
+                            func_name, func_args_non_seperated = line[len(libName) + 1:].split(" ")
+                            func_args = func_args_non_seperated.split(",")
+                            for i in range(0, len(func_args)):
+                                if func_args[i].isdigit():
+                                    func_args[i] = int(func_args[i])
+                                else:
+                                    pass
+                        else:
+                            try:
+                                func_name, func_args = line[len(libName) + 1:].split(" ")
+                                print(func_args)
+                                if func_args.isdigit():
+                                    func_args = int(func_args)
+                            except:
+                                func_name = line[len(libName) + 1:]
+                        if func_args != []:
+                            func = getattr(lib, func_name)
+                            if callable(func):
+                                func(func_args)
+                            else:
+                                print("\033[91mError : No such routine found in module\033[1;37m")
+                        else:
+                            func = getattr(lib, func_name)
+                            if callable(func):
+                                func()
+                            else:
+                                print("\033[91mError : No such routine found in module\033[1;37m")
+                    else:
+                        print("\033[91mError : Library not included\033[1;37m")
                 elif line.startswith("which "):
                     if line[6:] == "cpu" or line[6:] == "CPU":
                         print(platform.processor())
@@ -344,7 +387,7 @@ def run_file(filename):
                         plt.show()
                     except ValueError:
                         print("\033[91mError : Invalid Syntax\033[1;37m")
-                    except Exception as e:
+                    except exception as e:
                         print("\033[91mError : ", e, "\033[1;37m")
                 elif line.startswith("plotline "):
                     try:
@@ -358,7 +401,7 @@ def run_file(filename):
                         plt.show()
                     except ValueError:
                         print("\033[91mError : Invalid Syntax. Please use 'plotline x1 y1 x2 y2' format.\033[1;37m")
-                    except Exception as e:
+                    except exception as e:
                         print(f"\033[91mAn error occurred: {e}\033[1;37m")
                 elif line.startswith("system "):
                     os.system(line[7:])
@@ -622,19 +665,19 @@ def run_file(filename):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("ProcyoLang 1.0.1 Alpha 10")
+        print("ProcyoLang 1.0.2 Beta 1")
         print("Error : No input file specified")
         print("Usage : pl <filename>")
         sys.exit(1)
 
     filename = sys.argv[1]
     if filename == "-v" or filename == "-ver" or filename == "--v" or filename == "--ver":
-        print("ProcyoLang 1.0.1 Alpha 10")
+        print("ProcyoLang 1.0.2 Beta 1")
         print("Gautham Nair")
         sys.exit(0)
     try:
         run_file(filename)
     except:
-        print("ProcyoLang 1.0.1 Alpha 10")
+        print("ProcyoLang 1.0.2 Beta 1")
         print("Error : File not found")
         sys.exit(1)
