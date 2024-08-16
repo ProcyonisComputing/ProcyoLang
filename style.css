@@ -1,0 +1,127 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-image: radial-gradient(at center, #ffffff, #000000);
+}
+
+.header {
+    position: relative;
+    z-index: 1;
+    background-image: radial-gradient(white, rgb(116, 13, 156));
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.header-inner {
+    display: flex;
+    margin: 0 1cm;
+    width: calc(100% - 1cm);
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: flex;
+    padding: 10px;
+}
+
+.ver {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.navbar-wrapper {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.navbar-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo {
+    margin-right: 20px;
+}
+
+.navbar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.pbutton {
+    background-image: radial-gradient(white,#8e44ad); /* Changed to a deeper purple to match the theme */
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Increased font size to match the theme */
+    font-weight: 600; /* Added font weight to make the text bolder */
+    transition: background-color 0.2s ease-in-out; /* Added a transition effect for hover */
+  }
+  
+  .pbutton:hover {
+    background-color: #7a288a; /* Changed to a slightly darker purple on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added a subtle box shadow on hover */
+  }
+
+.navbar li {
+    margin-right: 20px;
+}
+
+
+.navbar a {
+    color: #333;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #666;
+}
+
+section {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+pre {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+code {
+    font-family: monospace;
+    font-size: 14px;
+    color: #333;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
