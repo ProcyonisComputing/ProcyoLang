@@ -1,4 +1,0 @@
-use libstd
-libstd.ver
-libstd.add 3,1
-libstd.display 12
