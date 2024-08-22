@@ -20,6 +20,6 @@
 
 `if x==y print->"EQUAL" ; else print->"NOT|s|Equal"` #Simple if-else, pretty much self-explanatory
 
-`for i till 5 print->i' #Prints from 0 to 5
+`for i till 5 print->i` #Prints from 0 to 5
 
 `for i noDuckTill 5 print->i` #Prints from 1 to 5
