@@ -4,7 +4,7 @@
 
 ProcyoLang Interpreted Programming Language developed by [Gautham Nair](https://github.com/gauthamnair2005)
 
-Latest : `ProcyoLang 1.0.2 Beta 1`
+Latest : `ProcyoLang 1.0.3 Beta 1`
 
 Tools Included:
 
@@ -28,6 +28,16 @@ The ProcyoLang Script Interpreter is a command-line tool that runs ProcyoLang So
 `python pl.py prog.pcl`
 
 ## What's new in Beta 1?
+
+### 1.0.3
+
+* Internal Code Refactor.
+*  Improved Error Handling.
+* `print` replaced by `display`.
+* `varops` command now can directly written like `operator variable,variable,variable...`.
+
+
+### 1.0.2
 
 * Entered Beta stage, comparatively stable than Alpha builds.
 * Fixed known bugs.

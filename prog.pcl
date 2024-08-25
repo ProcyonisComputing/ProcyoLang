@@ -1,4 +1,26 @@
-use libstd
-libstd.ver
-libstd.add 3,1
-libstd.display 12
+display "Hello"
+display 12
+display 12.21
+var x = 12
+display x
+var z = x
+display z
+var[] y = 12,12.23,12,17
+display y
+for i from 0~1 display->"Hallo"
+for i till 2 display->"Hello"
+for i noDuckTill 2 display->"Hollo"
+display @var
+display @adr
+display @act
+display @dtype
+#clrscr
+plot y
+input a "Enter|s|your|s|name|s|:|s|"
+display a
++ x,z
+- x,z
+* x,z
+/ x,z
+% x,z
+^ x,z
