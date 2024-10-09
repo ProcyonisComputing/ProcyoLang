@@ -1,3 +1,9 @@
+<<<<<<< Updated upstream
+use libstd
+libstd.ver
+libstd.add 3,1
+libstd.display 12
+=======
 display "Hello"
 display 12
 display 12.21
@@ -7,6 +13,8 @@ var z = x
 display z
 var[] y = 12,12.23,12,17
 display y
+act x = 13
+display x
 for i from 0~1 display->"Hallo"
 for i till 2 display->"Hello"
 for i noDuckTill 2 display->"Hollo"
@@ -24,3 +32,4 @@ display a
 / x,z
 % x,z
 ^ x,z
+>>>>>>> Stashed changes
