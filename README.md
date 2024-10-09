@@ -4,7 +4,11 @@
 
 ProcyoLang Interpreted Programming Language developed by [Gautham Nair](https://github.com/gauthamnair2005)
 
+<<<<<<< Updated upstream
 Latest : `ProcyoLang 1.0.2 Beta 1`
+=======
+Latest : `ProcyoLang 2.0.1 Beta 2`
+>>>>>>> Stashed changes
 
 Tools Included:
 
@@ -17,7 +21,7 @@ Tools Included:
 
 ⚠️ NO LONGER SUPPORTED, UPDATED AND PROVIDED..!
 
-The ProcyoLang Interactive Shell is a command-line interface that allows users to interact with ProcyoLang, however, it lacks few features/commands present in ProcyoLang Script Interpreter, like actual `for` loop, `if-else` statements, etc.
+The ProcyoLang Interactive Shell was a command-line interface that allowed users to interact with ProcyoLang, however, it lacked few features/commands present in ProcyoLang Script Interpreter, like actual `for` loop, `if-else` statements, etc.
 
 ### ProcyoLang Script Interpreter
 
@@ -27,7 +31,16 @@ The ProcyoLang Script Interpreter is a command-line tool that runs ProcyoLang So
 
 `python pl.py prog.pcl`
 
-## What's new in Beta 1?
+## What's new in Beta 2?
+
+* Removed unnecessary lines and modules import.
+* Removed incomplete features.
+* ProcyoLang renaming to Linea in Beta 3.
+* Next version : Linea 0.1 Beta 3.
+* Will be managed in Gautham Nair's [Linea](https://github.com/gauthamnair2005/Linea) repository.
+
+
+## What was new in Beta 1?
 
 * Entered Beta stage, comparatively stable than Alpha builds.
 * Fixed known bugs.

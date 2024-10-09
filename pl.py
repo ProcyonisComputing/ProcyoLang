@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import os
 import sys
 import time
@@ -5,12 +6,28 @@ from platform import processor, system, version
 import matplotlib.pyplot as plt
 import psutil
 import importlib
+=======
+try:
+    import os
+    import sys
+    import matplotlib.pyplot as plt
+except:
+    print("\033[91m[!] Error: Initialization of core libraries failed!\033[0m")
+    sys.exit(1)
+>>>>>>> Stashed changes
 
 lvar = {}
 ladr = {}
 lact = {}
+<<<<<<< Updated upstream
 lfor = []
 isIncluded = False
+=======
+lfor = {}
+floatNotCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "'", '"', ",", "/", "\\", "<", ">", ";", ":", "[", "]", "{", "}", "-", "_", "+", "=", "(", ")", "!", "@", "#", "$", "%", "^", "&", "*", "~", "`", "|"]
+alphabetAll = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "'", '"', ",", "/", "\\", "<", ">", ";", ":", "[", "]", "{", "}", "-", "_", "+", "=", "(", ")", "!", "@", "#", "$", "%", "^", "&", "*", "~", "`", "|", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+arith = ["%", "^", "*", "-", "+", "/"]
+>>>>>>> Stashed changes
 
 def for_run(param):
     if param.startswith("print->"):
@@ -45,9 +62,255 @@ def for_run(param):
             if val0[i].isdigit():
                 val0[i] = int(val0[i])
             else:
+<<<<<<< Updated upstream
                 if val0[i].startswith('"'):
                     if val0[i].endswith('"'):
                         val0[i] = val0[i].replace('"', '')
+=======
+                displayError("Invalid data type passed!")
+                return None
+
+def binView(param):
+    if param == None:
+        displayError("No variable name passed!")
+        return None
+    else:
+        if param in lvar:
+            print(bin(lvar[param]))
+            return None
+        elif param.isdigit():
+            print(bin(int(param)))
+            return None
+        else:
+            displayError("Variable does not exist!")
+            return None
+
+def typeView(param):
+    if param == None:
+        displayError("No variable name passed!")
+        return None
+    else:
+        if param in lvar:
+            if type(lvar[param]) == int:
+                print("Integer")
+            elif type(lvar[param]) == float:
+                print("Floating Point")
+            elif type(lvar[param]) == str:
+                print("String")
+            elif type(lvar[param]) == list:
+                print("Array")
+            elif type(lvar[param]) == bool:
+                print("Boolean")
+            elif lvar[param] == None:
+                print("None")
+            elif type(lvar[param]) == complex:
+                print("Complex")
+            return None
+        elif param.isdigit():
+            print(type(int(param)))
+            return None
+        elif param == "True" or param == "False" or param == "None" or param == "NIL" or param == "NULL":
+            print("Boolean")
+        else:
+            displayError("Variable does not exist!")
+            return None
+
+def octView(param):
+    if param == None:
+        displayError("No variable name passed!")
+        return None
+    else:
+        if param in lvar:
+            print(oct(lvar[param]))
+            return None
+        elif param.isdigit():
+            print(oct(int(param)))
+            return None
+        else:
+            displayError("Variable does not exist!")
+            return None
+
+def hexView(param):
+    if param == None:
+        displayError("No variable name passed!")
+        return None
+    else:
+        if param in lvar:
+            print(hex(lvar[param]))
+            return None
+        elif param.isdigit():
+            print(hex(int(param)))
+            return None
+        else:
+            displayError("Variable does not exist!")
+            return None
+
+def decView(param):
+    if param == None:
+        displayError("No variable name passed!")
+        return None
+    else:
+        if param in lvar:
+            print(int(lvar[param], 0))
+            return None
+        elif param.isdigit():
+            print(int(param, 0))
+            return None
+        else:
+            displayError("Variable does not exist!")
+            return None
+
+def displayAdr():
+    print(ladr)
+
+def displayAct():
+    print(lact)
+
+def display(param):
+    param = str(param)
+    if param in lact:
+        print(lact[param])
+    elif param in lvar:
+        print(lvar[param])
+    elif param in ladr:
+        print(ladr[param])
+    elif param.startswith('"') and param.endswith('"'):
+        try:
+            print(param[1:-1].replace('|s|', ' '))
+        except:
+            print(param[1:-1])
+    elif param.startswith("'") and param.endswith("'"):
+        try:
+            print(param[1:-1].replace('|s|', ' '))
+        except:
+            print(param[1:-1])
+    elif param.isdigit():
+        print(param)
+    elif param == "True":
+        print(True)
+    elif param == "False":
+        print(False)
+    elif param == "None":
+        print(None)
+    elif param == "NULL":
+        print(None)
+    elif param == "NILL":
+        print(None)
+    elif param in alphabetAll:
+        displayError("Invalid value passed!")
+    else:
+        try:
+            print(eval(param))
+        except:
+            print(param)
+
+def displayError(param):
+    print(f"\033[91m[!] Syntax Error in line {lineCount}: " + param + "\033[0m")
+
+def displayWarning(param):
+    print(f"\033[93m[!] Warning in line {lineCount}: " + param + "\033[0m")
+
+def displaySuccess(param):
+    print("\033[92m[+] Success: " + param + "\033[0m")
+
+def ver():
+    display("ProcyoLang\nVersion: 2.0.1 Beta 2\nGautham Nair")
+
+def var(param):
+    if param == None:
+        displayError("No variable name passed!")
+        return None
+    else:
+        varName, varValue = param.split("=")
+        varName = varName.strip()
+        varValue = varValue.strip()
+        if varName in lvar:
+            displayWarning("Variable already exists! use `varupd" + varName + " = " + varValue + "` to update the value.")
+            return None
+        else:
+            if varValue.isdigit():
+                lvar[varName] = int(varValue)
+                ladr[varName] = id(lvar[varName])
+                return None
+            elif varValue in lvar:
+                lvar[varName] = lvar[varValue]
+                ladr[varName] = id(lvar[varName])
+                return None
+            else:
+                if varValue.startswith('"') and varValue.endswith('"'):
+                    lvar[varName] = varValue.replace('"', '')
+                    ladr[varName] = id(lvar[varName])
+                    return None
+                elif varValue.startswith("'") and varValue.endswith("'"):
+                    lvar[varName] = varValue.replace("'", '')
+                    ladr[varName] = id(lvar[varName])
+                    return None
+                else:
+                    if varValue == "True":
+                        lvar[varName] = True
+                        ladr[varName] = id(lvar[varName])
+                        return None
+                    elif varValue == "False":
+                        lvar[varName] = False
+                        ladr[varName] = id(lvar[varName])
+                        return None
+                    elif varValue == "None":
+                        lvar[varName] = None
+                        ladr[varName] = id(lvar[varName])
+                        return None
+                    elif varValue == "NULL":
+                        lvar[varName] = None
+                        ladr[varName] = id(lvar[varName])
+                        return None
+                    elif varValue == "NILL":
+                        lvar[varName] = None
+                        ladr[varName] = id(lvar[varName])
+                        return None
+                    elif "," in varValue:
+                        val = varValue.strip()
+                        val0 = val.split(",")
+                        val0 = [x.strip() for x in val0]
+                        for i in range(0, len(val0)):
+                            if val0[i].isdigit():
+                                val0[i] = int(val0[i])
+                                return None
+                            else:
+                                if val0[i].startswith('"') and val0[i].endswith('"'):
+                                    val0[i] = val0[i].replace('"', '')
+                                elif val0[i].startswith("'") and val0[i].endswith("'"):
+                                    val0[i] = val0[i].replace("'", '')
+                                else:
+                                    if val0[i] == "True":
+                                        val0[i] = True
+                                    elif val0[i] == "False":
+                                        val0[i] = False
+                                    elif val0[i] == "None":
+                                        val0[i] = None
+                                    elif val0[i] == "NULL":
+                                        val0[i] = None
+                                    elif val0[i] == "NILL":
+                                        val0[i] = None
+                                    else:
+                                        displayError("Invalid value passed!")
+                                        return None
+                        lvar[varName] = val0
+                        ladr[varName] = id(lvar[varName])
+                        return None
+                    elif "." in varValue and varValue not in floatNotCase:
+                        dotCount = 0
+                        for i in range(0, len(varValue)):
+                            if varValue[i] == ".":
+                                dotCount += 1
+                            else:
+                                continue
+                        if dotCount == 1:
+                            lvar[varName] = float(varValue)
+                            ladr[varName] = id(lvar[varName])
+                            return None
+                        else:
+                            displayError("Invalid value passed!")
+                            return None
+>>>>>>> Stashed changes
                     else:
                         pass
                 else:
@@ -665,9 +928,15 @@ def run_file(filename):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
+<<<<<<< Updated upstream
         print("ProcyoLang 1.0.2 Beta 1")
         print("Error : No input file specified")
         print("Usage : pl <filename>")
+=======
+        print("ProcyoLang 2.0.1 Beta 2")
+        print("\033[91m[!] Error: No input file specified!\033[0m")
+        print("Usage: pl <filename>")
+>>>>>>> Stashed changes
         sys.exit(1)
 
     filename = sys.argv[1]
